@@ -94,15 +94,15 @@
       line-height: 1.7;
     }
     
-    /* --- Donation Sections Layout --- */
+    /* --- Donation Sections Layout (Responsive Flexbox) --- */
     .donation-methods {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Allows stacking on small screens */
         gap: 20px;
         margin-top: 40px;
     }
     .bank-details, .qr-section {
-      flex: 1 1 350px;
+      flex: 1 1 350px; /* Allows boxes to take minimum 350px width, then wrap */
       padding: 25px;
       border: 1px solid #ffc107;
       border-radius: 8px;
@@ -163,6 +163,53 @@
         line-height: 1.6;
         border-top: 1px solid #ffc107;
     }
+
+    /* ==================================== */
+    /* --- Media Queries for Mobile Screens --- */
+    /* ==================================== */
+    @media (max-width: 650px) {
+        /* Adjust header text and padding */
+        header {
+            padding: 20px 10px 10px 10px;
+        }
+        header h1 {
+            font-size: 28px;
+        }
+        .marathi-title {
+            font-size: 20px;
+        }
+
+        /* Stack navigation links vertically for easier tapping */
+        nav a {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        /* Adjust main content container spacing */
+        .container {
+            margin: 20px 10px;
+            padding: 20px;
+        }
+        
+        /* Force donation boxes to stack vertically for a single-column layout */
+        .donation-methods {
+            flex-direction: column; 
+            gap: 15px;
+        }
+
+        /* Ensure donation boxes take full available width */
+        .bank-details, .qr-section {
+            flex: 1 1 100%; /* Overrides the 350px width for small screens */
+            padding: 20px;
+        }
+
+        /* Adjust button width for mobile */
+        .btn {
+            width: 90%;
+            max-width: 300px;
+        }
+    }
   </style>
 </head>
 <body>
@@ -195,10 +242,9 @@
     </p>
     
     <p>
-     Your generous contribution fuels our core missions: covering the **Mandir's daily expenses**,
-      providing **Gaushala feed** for the cows, sustaining **Annadaan** (feeding the needy),
-      organizing **medical camps**, and providing **educational aid** to underprivileged children.
-      Join us in spreading Sai Baba's message of love and service.service.
+      Your generous contribution fuels our core missions: **Annadaan** (feeding the needy),
+      organizing **medical camps**, providing **educational aid** to underprivileged children,
+      and maintaining the holy environment of the temple. Join us in spreading Sai Baba's message of love and service.
     </p>
 
     <div class="donation-methods">
@@ -218,7 +264,7 @@
           <h3>Quick UPI Payment</h3>
           <div class="marathi-h3">जलद UPI पेमेंट</div>
 
-          <img src="https://i.postimg.cc/br84Sg6R/sai.jpg" alt="QR Code for UPI Donation - Vinod Madhavi">
+          <img src="sai.jpg" alt="QR Code for UPI Donation - Vinod Madhavi">
           
           <p>Scan to pay with any UPI app (Google Pay, PhonePe, Paytm, or BHIM).</p>
           <p>Or use our UPI ID for direct transfer:</p>
@@ -237,7 +283,7 @@
             Shri Sai Seva Charitable Sanstha is a registered non-profit organization. <br>
             Your support makes a direct difference in the lives of many.
         </p>
-        <p><strong>Registration Number:</strong> (Maha/589/17/Thane)</p>
+        <p><strong>Registration Number:</strong> (Placeholder-Insert-Your-Actual-Number)</p>
         <hr style="border-top: 1px solid #f7b62055; margin: 15px 0;">
         <p>For any donation queries, please contact us at: <br>
         <strong>saisanstha@gmail.com</strong> or <strong>+91-9767888898</strong></p>
